@@ -361,3 +361,10 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Ignore vcpkg artifacts
+BlueDragonEngine/vcpkg_installed
+BlueDragonEngine/vcpkg_installed/
+
+# Ignore .vscode directory
+.vscode/

@@ -1,7 +1,0 @@
-x64-windows/
-x64-windows/include/
-x64-windows/include/rang.hpp
-x64-windows/share/
-x64-windows/share/rang/
-x64-windows/share/rang/copyright
-x64-windows/share/rang/vcpkg_abi_info.txt

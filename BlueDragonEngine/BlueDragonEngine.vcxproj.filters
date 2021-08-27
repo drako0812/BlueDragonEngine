@@ -30,6 +30,9 @@
     <ClCompile Include="bde.config.ixx">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="bde.errors.ixx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="vcpkg.json" />

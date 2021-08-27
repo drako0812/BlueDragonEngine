@@ -1,8 +1,10 @@
-Package: effolkronium-random
-Version: 1.3.1
+Package: nuklear
+Version: 2021-03-18
+Port-Version: 1
+Depends: vcpkg-cmake, vcpkg-cmake-config
 Architecture: x64-windows
 Multi-Arch: same
-Abi: 85300520f4a31ad9bba486ae94507e868fa0787e5197e765de910536c1e38736
-Description: Random with a modern C++ API
+Abi: 29006c3cb60f87a803e3974e3e4710f5ee0b175c3a1ff6e763869483add96b60
+Description: This is a minimal state immediate mode graphical user interface toolkit written in ANSI C and licensed under public domain
 Type: Port
 Status: install ok installed

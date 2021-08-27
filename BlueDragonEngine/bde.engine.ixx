@@ -4,6 +4,7 @@ export module bde.engine;
 
 import bde.base;
 import bde.object;
+import bde.config;
 import <string>;
 import <iostream>;
 import <vector>;
@@ -42,6 +43,7 @@ namespace bde {
     /// @brief Parent class of the BlueDragonEngine
     export class Engine {
     public:
+        Configuration Config;
 
         virtual ~Engine();
 
@@ -69,18 +71,32 @@ namespace bde {
             return r;
         }
 
-        const int screenWidth = 800;
-        const int screenHeight = 450;
+        Config.CreateCategory("display").
+            SetInt("display", "width", 800).
+            SetInt("display", "height", 450).
+            SetInt("display", "framerate", 60).
+            SetList("display", "default_bg_color", ConfigList{ 245ll,245ll,245ll,255ll });
 
-        InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
-        SetTargetFPS(60);
+        Color default_bg_color;
+        {
+            auto v = Config.GetList("display", "default_bg_color").value();
+            default_bg_color = Color{
+                static_cast<unsigned char>(std::any_cast<ConfigInt>(v[0])),
+                static_cast<unsigned char>(std::any_cast<ConfigInt>(v[1])),
+                static_cast<unsigned char>(std::any_cast<ConfigInt>(v[2])),
+                static_cast<unsigned char>(std::any_cast<ConfigInt>(v[3]))
+            };
+        }
+
+        InitWindow(Config.GetInt("display", "width").value(), Config.GetInt("display", "height").value(), "raylib [core] example - basic window");
+        SetTargetFPS(Config.GetInt("display", "framerate").value());
 
         while (!WindowShouldClose()) {
             // Update
 
             // Draw
             BeginDrawing();
-            ClearBackground(RAYWHITE);
+            ClearBackground(default_bg_color);
             DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
             EndDrawing();
         }

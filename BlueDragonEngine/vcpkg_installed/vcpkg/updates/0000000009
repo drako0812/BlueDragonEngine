@@ -1,8 +1,0 @@
-Package: rang
-Version: 3.1.0
-Architecture: x64-windows
-Multi-Arch: same
-Abi: 525135e9bfcece3d495f218cdd8b524cae37cde30cc2b64d14bfd587adb535f8
-Description: Colors for your Terminal.
-Type: Port
-Status: install ok installed

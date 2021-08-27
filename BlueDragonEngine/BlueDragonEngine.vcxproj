@@ -158,6 +158,7 @@
     <ClCompile Include="bde.base.ixx" />
     <ClCompile Include="bde.config.ixx" />
     <ClCompile Include="bde.engine.ixx" />
+    <ClCompile Include="bde.errors.ixx" />
     <ClCompile Include="bde.object.ixx" />
     <ClCompile Include="BlueDragonEngineExample.cpp" />
   </ItemGroup>

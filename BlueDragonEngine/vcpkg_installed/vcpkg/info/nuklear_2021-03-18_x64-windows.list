@@ -1,0 +1,10 @@
+x64-windows/
+x64-windows/include/
+x64-windows/include/nuklear/
+x64-windows/include/nuklear/nuklear.h
+x64-windows/share/
+x64-windows/share/nuklear/
+x64-windows/share/nuklear/copyright
+x64-windows/share/nuklear/vcpkg_abi_info.txt
+x64-windows/share/unofficial-nuklear/
+x64-windows/share/unofficial-nuklear/unofficial-nuklear-config.cmake

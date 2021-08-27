@@ -1,0 +1,8 @@
+Package: effolkronium-random
+Version: 1.3.1
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 85300520f4a31ad9bba486ae94507e868fa0787e5197e765de910536c1e38736
+Description: Random with a modern C++ API
+Type: Port
+Status: install ok half-installed

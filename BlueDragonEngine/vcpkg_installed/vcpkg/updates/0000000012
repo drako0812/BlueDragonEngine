@@ -1,0 +1,10 @@
+Package: raylib
+Version: 3.7.0
+Port-Version: 1
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 253876c2ad65aab737e0747485f3cdabe2ac28de8bf72f30421f38936ff05af1
+Description: A simple and easy-to-use library to enjoy videogames programming
+Type: Port
+Default-Features: use-audio
+Status: install ok installed

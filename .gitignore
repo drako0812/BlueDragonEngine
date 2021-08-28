@@ -363,8 +363,13 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # Ignore vcpkg artifacts
-BlueDragonEngine/vcpkg_installed
-BlueDragonEngine/vcpkg_installed/
+BlueDragonEngineExample/vcpkg_installed
+BlueDragonEngineExample/vcpkg_installed/
+BlueDragonEngineLib/vcpkg_installed
+BlueDragonEngineLib/vcpkg_installed/
 
 # Ignore .vscode directory
 .vscode/
+
+BlueDragonEngineExample/bde_config.toml
+/vcpkg_installed

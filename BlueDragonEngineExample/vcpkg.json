@@ -3,13 +3,11 @@
     "name": "blue-dragon-engine-example",
     "version": "0.1.0",
     "dependencies": [
-        "effolkronium-random",
-        "fmt",
-        "rang",
         {
             "name": "raylib",
             "features": [ "use-audio" ]
         },
+        "tomlplusplus",
         "nuklear"
     ]
 }

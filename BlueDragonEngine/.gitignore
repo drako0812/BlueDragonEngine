@@ -1,3 +1,0 @@
-# Ignore vcpkg artifacts
-vcpkg_installed
-vcpkg_installed/

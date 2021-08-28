@@ -18,21 +18,6 @@
     <ClCompile Include="BlueDragonEngineExample.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bde.base.ixx">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="bde.object.ixx">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="bde.engine.ixx">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="bde.config.ixx">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="bde.errors.ixx">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="vcpkg.json" />

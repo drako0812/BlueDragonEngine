@@ -4,6 +4,7 @@ module;
 //#include "raylib-nuklear.h"
 #include <nuklear.h>
 #include <toml++/toml.h>
+#include <sol/sol.hpp>
 export module bde.engine;
 
 import bde.base;
@@ -47,6 +48,7 @@ namespace bde {
     public:
         toml::table Config;
         nk_context * NuklearGUI;
+        sol::state Lua;
 
         BDE_API virtual ~Engine();
 
@@ -65,6 +67,12 @@ namespace bde {
     protected:
 
         BDE_API std::vector<std::string> convertArguments(int argc, char * argv[]);
+
+    private:
+
+        void loadEngineLuaAPI();
+        void loadRaylibLuaAPI();
+        void loadNuklearLuaAPI();
     };
 
 }

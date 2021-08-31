@@ -2,6 +2,7 @@ module;
 #include <raylib.h>
 #include "raylib-nuklear.h"
 #include <toml++/toml.h>
+#include <sol/sol.hpp>
 module bde.engine;
 
 import bde.base;
@@ -41,7 +42,7 @@ namespace bde {
         TraceLog(LOG_INFO, "Starting engine");
 
         if (std::filesystem::exists("bde_config.toml")) {
-            TraceLog(LOG_INFO, "    Loading \"bde_config.toml\"");
+            TraceLog(LOG_INFO, "  Loading \"bde_config.toml\"");
             Config = toml::parse_file("bde_config.toml");
         } else {
             TraceLog(LOG_INFO, "    Creating default configuration");
@@ -54,9 +55,14 @@ default_bg_color = [245, 245, 245, 255]
 )"sv;
             Config = toml::parse(Config_default);
         }
-        TraceLog(LOG_INFO, "    Configuration loaded\n");
+        TraceLog(LOG_INFO, "    Configuration loaded");
 
-        TraceLog(LOG_INFO, "    Calling OnStartup");
+        TraceLog(LOG_INFO, "  Initializing LUA");
+        Lua = sol::state();
+        Lua.open_libraries(sol::lib::base, sol::lib::package, sol::lib::coroutine, sol::lib::string, sol::lib::os, sol::lib::math, sol::lib::table, sol::lib::debug, sol::lib::bit32, sol::lib::io/*, sol::lib::ffi*/);
+        loadEngineLuaAPI();
+
+        TraceLog(LOG_INFO, "  Calling OnStartup");
         if (auto r = OnStartup(convertArguments(argc, argv)); !r) {
             return r;
         }
@@ -68,7 +74,7 @@ default_bg_color = [245, 245, 245, 255]
             Config["display"]["default_bg_color"][3].value<std::uint8_t>().value()
         };
 
-        TraceLog(LOG_INFO, "    Creating window");
+        TraceLog(LOG_INFO, "  Creating window");
         InitWindow(Config["display"]["width"].value<int>().value(), Config["display"]["height"].value<int>().value(), "BlueDragonEngine");
         SetTargetFPS(Config["display"]["framerate"].value<int>().value());
 
@@ -94,10 +100,10 @@ default_bg_color = [245, 245, 245, 255]
         OnShutdown();
         UnloadNuklear(NuklearGUI);
         CloseWindow();
-        TraceLog(LOG_INFO, "    Window closed");
+        TraceLog(LOG_INFO, "  Window closed");
 
         {
-            TraceLog(LOG_INFO, "    Opening \"bde_config.toml\"");
+            TraceLog(LOG_INFO, "  Opening \"bde_config.toml\"");
             std::ofstream outf("bde_config.toml", std::ios::out | std::ios::trunc);
             if (outf) {
                 outf << Config << "\n";
@@ -134,5 +140,12 @@ default_bg_color = [245, 245, 245, 255]
             args.at(i) = argv[i];
         }
         return args;
+    }
+
+    void Engine::loadEngineLuaAPI() {
+        Lua["bde"] = Lua.create_table();
+        Lua["bde"]["Engine"] = Lua.create_table();
+        loadRaylibLuaAPI();
+        loadNuklearLuaAPI();
     }
 }

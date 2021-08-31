@@ -11,6 +11,11 @@
             "features": [ "use-audio" ]
         },
         "nuklear",
-        "tomlplusplus"
+        "tomlplusplus",
+        {
+            "name": "lua",
+            "features": [ "cpp" ]
+        },
+        "sol2"
     ]
 }

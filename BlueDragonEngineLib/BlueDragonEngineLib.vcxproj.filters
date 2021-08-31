@@ -42,6 +42,12 @@
     <ClCompile Include="nuklear.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="bde.engine.raylib-api.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bde.engine.nuklear-api.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bde.export.hpp">
